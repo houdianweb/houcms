@@ -10,29 +10,11 @@
 // +----------------------------------------------------------------------
 // | Web Route
 // +----------------------------------------------------------------------
-namespace App\Providers;
+namespace App;
 
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Eloquent\Model;
 
-class AppServiceProvider extends ServiceProvider
+class Article extends Model
 {
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
-    }
-
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
-    }
+    protected $table = 'cms_article';
 }

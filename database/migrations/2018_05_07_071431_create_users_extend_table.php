@@ -10,29 +10,33 @@
 // +----------------------------------------------------------------------
 // | Web Route
 // +----------------------------------------------------------------------
-namespace App\Providers;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-use Illuminate\Support\ServiceProvider;
-
-class AppServiceProvider extends ServiceProvider
+class CreateUsersExtendTable extends Migration
 {
     /**
-     * Bootstrap any application services.
+     * Run the migrations.
      *
      * @return void
      */
-    public function boot()
+    public function up()
     {
-        //
+        Schema::create('users_extend', function (Blueprint $table) {
+            $table->increments('id');
+            $table->tinyInteger('sex');
+            $table->timestamps();
+        });
     }
 
     /**
-     * Register any application services.
+     * Reverse the migrations.
      *
      * @return void
      */
-    public function register()
+    public function down()
     {
-        //
+        Schema::dropIfExists('users_extend');
     }
 }

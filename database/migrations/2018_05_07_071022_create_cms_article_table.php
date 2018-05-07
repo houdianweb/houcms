@@ -10,29 +10,35 @@
 // +----------------------------------------------------------------------
 // | Web Route
 // +----------------------------------------------------------------------
-namespace App\Providers;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-use Illuminate\Support\ServiceProvider;
-
-class AppServiceProvider extends ServiceProvider
+class CreateCmsArticleTable extends Migration
 {
     /**
-     * Bootstrap any application services.
+     * Run the migrations.
      *
      * @return void
      */
-    public function boot()
+    public function up()
     {
-        //
+        Schema::create('cms_article', function (Blueprint $table) {
+            $table->increments('id')->autoIncrement();
+            $table->string('title',100)->comment('内容标题');
+            $table->string('descr',255)->comment('文章描述');
+            $table->integer('click')->comment('点击量');
+            $table->timestamps();
+        });
     }
 
     /**
-     * Register any application services.
+     * Reverse the migrations.
      *
      * @return void
      */
-    public function register()
+    public function down()
     {
-        //
+        Schema::dropIfExists('cms_article');
     }
 }
