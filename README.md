@@ -1,2 +1,0 @@
-# houcms
-cms,blog,pm
