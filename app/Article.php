@@ -17,4 +17,17 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     protected $table = 'cms_article';
+    protected $fillable = ['title','descr','click'];
+    public function adds($data){
+        $insert = array();
+        $insert['uid']   = $data['uid'];
+        $insert['title'] = $data['title'];
+        $insert['descr'] = $data['descr']?$data['descr']:$data['content'];
+        $insert['click'] = isset($data['click'])?$data['click']+1:1;
+        return $this->insertGetId($insert);
+    }
+    // 关联用户
+    public function user(){
+        return $this->belongsTo('App\User','uid','id');
+    }
 }

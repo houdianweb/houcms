@@ -9,6 +9,7 @@
 <meta name="description" content="{{ config('app.description', 'HouBBS前沿技术交流论坛') }}">
 <meta name="csrf-token" content="{{ csrf_token() }}">    <!-- CSRF Token -->
 <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <!--[if lt IE 9]>
 <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
@@ -16,10 +17,10 @@
 </head>
 <body>
 @include('common.header')
-@include('common.nav')
 @yield('content')
 @include('common.footer')
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
